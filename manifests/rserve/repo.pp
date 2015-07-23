@@ -12,7 +12,7 @@ class iqss::rserve::repo {
         comment    => 'This is the Ubuntu Debian repository for RStudio',
         location   => 'http://cran.rstudio.com/bin/linux/ubuntu',
         repos      => "${::lsbdistcodename}/",
-        release    => '',
+        release    => ' ', # The space prevents the default lsbdistcodename
         key        =>  'E298A3A825C0D65DFD57CBB651716619E084DAB9',
         key_server => 'keyserver.ubuntu.com',
       }
