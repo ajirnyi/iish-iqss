@@ -80,6 +80,11 @@ class iqss::tworavens::config {
       path    => "${iqss::tworavens::dataexplore_dir}/app_ddi.js",
       line    => "hostname='${iqss::tworavens::dataverse_fqdn}:${iqss::tworavens::dataverse_port}';",
       match   => 'hostname="dataverse-demo.iq.harvard.edu"';
+    'app_ddi production_dataverse_url':
+      ensure  => present,
+      path    => "${iqss::tworavens::dataexplore_dir}/app_ddi.js",
+      line    => "hostname='${iqss::tworavens::dataverse_fqdn}:${iqss::tworavens::dataverse_port}';",
+      match   => 'dataverseurl="%PRODUCTION_DATAVERSE_URL%";';
     'app_ddi rappURL':
       ensure  => present,
       path    => "${iqss::tworavens::dataexplore_dir}/app_ddi.js",
