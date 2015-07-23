@@ -117,6 +117,8 @@ deploy() {
 
     target_file=$(/bin/ls <%= scope.lookupvar('iqss::dataverse::autodeploy_folder') %>/*.war | grep .war)
     if [ -z "$target_file" ] ; then
+        # No previous installation perhaps ? Restart glassfish
+        service dataverse restart
         target_file="<%= scope.lookupvar('iqss::dataverse::autodeploy_folder') %>/${FILENAME}"
     else
         md5_target=$(md5sum $target_file | cut -d ' ' -f 1)
