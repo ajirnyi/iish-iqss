@@ -12,7 +12,4 @@ class iqss::globals (
   $database_port               = '5432',
   $database_user               = 'dvnApp',
   $ensure                      = 'present',
-) {
-
-
-}
+) {}
