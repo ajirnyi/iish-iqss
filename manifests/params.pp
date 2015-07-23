@@ -1,42 +1,11 @@
 # PRIVATE CLASS: do not use directly. To change settings use the inherited classes or Iqss::Globals
 # Variable name convention whereever possible: classname_keyname=default|Iqss::Globals::classname_keyname
 class iqss::params inherits iqss::globals {
-  $apache2_default_vhost                            = false
-  $apache2_default_ssl_vhost                        = false
-  $apache2_default_mods                             = false
   $apache2_default_confd_files                      = false
+  $apache2_default_mods                             = false
+  $apache2_default_ssl_vhost                        = false
+  $apache2_default_vhost                            = false
   $apache2_purge_configs                            = $iqss::globals::apache2_purge_configs
-  $ensure                                           = 'present'
-  $dataverse_files_directory                        = '/home/glassfish/dataverse/files'
-  $dataverse_rserve_host                            =  $iqss::globals::dataverse_fqdn
-  $dataverse_rserve_port                            = '6311'
-  $dataverse_rserve_user                            = 'rserve'
-  $dataverse_rserve_password                        = 'rserve'
-  $dataverse_auth_password_reset_timeout_in_minutes = '60'
-  $dataverse_fqdn                                   = $iqss::globals::dataverse_fqdn
-  $dataverse_site_url                               = "https://${dataverse_fqdn}:9999"
-  $dataverse_port                                   = $iqss::globals::dataverse_port
-  $rserve_packages_r                                = [ 'devtools', 'DescTools', 'R2HTML', 'Rserve', 'VGAM', 'AER', 'dplyr', 'quantreg', 'geepack', 'maxLik', 'Amelia', 'Rook', 'jsonlite', 'rjson' ]
-  $rserve_packages_zelig                            = 'https://github.com/IQSS/Zelig/archive/master.zip'
-  $rserve_user                                      = 'rserve'
-  $doi_username                                     = 'apitest'
-  $doi_password                                     = 'apitest'
-  $doi_baseurlstring                                = 'https://ezid.cdlib.org'
-  $glassfish_version                                = '4.1'
-  $glassfish_service_name                           = 'dataverse'
-  $glassfish_parent_dir                             = '/home/glassfish'
-  $glassfish_user                                   = 'glassfish'
-  $glassfish_create_domain                          = true
-  $glassfish_domain_name                            = 'domain1'
-  $glassfish_remove_default_domain                  = false
-  $glassfish_tmp_dir                                = '/opt/glassfish'
-  $glassfish_jvmoption                              = [ '-XX:MaxPermSize=512m', '-XX:PermSize=256m', '-Xmx1024m', '-Djavax.xml.parsers.SAXParserFactory=com.sun.org.apache.xerces.internal.jaxp.SAXParserFactoryImpl' ]
-  $glassfish_mailhost                               = 'localhost'
-  $glassfish_mailuser                               = 'dataversenotify'
-  $glassfish_fromaddress                            = 'do-not-reply@localhost'
-  $glassfish_mailproperties                         = 'username=a_username:password=a_password'
-  $repository                                       = 'local'
-  $trigger                                          = '*/3'
   $database_createdb                                = false
   $database_encoding                                = 'UTF-8'
   $database_host                                    = $iqss::globals::database_host
@@ -69,23 +38,54 @@ class iqss::params inherits iqss::globals {
   $database_replication                             = false
   $database_createrole                              = false
   $database_version                                 = '9.3'
+  $dataverse_auth_password_reset_timeout_in_minutes = '60'
+  $dataverse_files_directory                        = '/home/glassfish/dataverse/files'
+  $dataverse_fqdn                                   = $iqss::globals::dataverse_fqdn
+  $dataverse_port                                   = $iqss::globals::dataverse_port
+  $dataverse_rserve_host                            =  $iqss::globals::dataverse_fqdn
+  $dataverse_rserve_port                            = '6311'
+  $dataverse_rserve_password                        = 'rserve'
+  $dataverse_rserve_user                            = 'rserve'
+  $dataverse_site_url                               = "https://${dataverse_fqdn}:9999"
+  $doi_baseurlstring                                = 'https://ezid.cdlib.org'
+  $doi_password                                     = 'apitest'
+  $doi_username                                     = 'apitest'
+  $ensure                                           = 'present'
+  $glassfish_create_domain                          = true
+  $glassfish_fromaddress                            = 'do-not-reply@localhost'
+  $glassfish_parent_dir                             = '/home/glassfish'
+  $glassfish_domain_name                            = 'domain1'
+  $glassfish_jvmoption                              = [ '-XX:MaxPermSize=512m', '-XX:PermSize=256m', '-Xmx1024m', '-Djavax.xml.parsers.SAXParserFactory=com.sun.org.apache.xerces.internal.jaxp.SAXParserFactoryImpl' ]
+  $glassfish_mailhost                               = 'localhost'
+  $glassfish_mailproperties                         = 'username=a_username:password=a_password'
+  $glassfish_mailuser                               = 'dataversenotify'
+  $glassfish_remove_default_domain                  = false
+  $glassfish_service_name                           = 'dataverse'
+  $glassfish_tmp_dir                                = '/opt/glassfish'
+  $glassfish_user                                   = 'glassfish'
+  $glassfish_version                                = '4.1'
+  $repository                                       = 'local'
+  $rserve_packages_r                                = [ 'devtools', 'DescTools', 'R2HTML', 'Rserve', 'VGAM', 'AER', 'dplyr', 'quantreg', 'geepack', 'maxLik', 'Amelia', 'Rook', 'jsonlite', 'rjson' ]
+  $rserve_packages_zelig                            = 'https://github.com/IQSS/Zelig/archive/master.zip'
+  $rserve_user                                      = 'rserve'
+  $trigger                                          = '*/3'
   $rserve_package_repo                              = 'http://cran.r-project.org'
+  $solr_core                                        = 'collection1'
   $solr_url                                         = 'http://archive.apache.org/dist/lucene/solr'
   $solr_version                                     = '4.6.0'
-  $solr_solr_parent_dir                             = '/home/solr-4.6.0'
-  $solr_jetty_user                                  = 'solr'
+  $solr_jetty_home                                  = "${solr_solr_parent_dir}/example"
+  $solr_jetty_java_options                          = '-Xmx512m'
   $solr_jetty_host                                  = $iqss::globals::dataverse_fqdn
   $solr_jetty_port                                  = '8983'
-  $solr_jetty_java_options                          = '-Xmx512m'
-  $solr_jetty_home                                  = "${solr_solr_parent_dir}/example"
+  $solr_jetty_user                                  = 'solr'
   $solr_solr_home                                   = "${solr_solr_parent_dir}/example/solr"
-  $solr_core                                        = 'collection1'
-  $tworavens_rapache_version                        = '1.2.6'
+  $solr_solr_parent_dir                             = '/home/solr-4.6.0'
+  $tworavens_domain                                 = $iqss::globals::dataverse_fqdn
   $tworavens_package                                = 'https://github.com/IQSS/TwoRavens/archive/v0.1.zip'
   $tworavens_parent_dir                             = '/var/www/html'
-  $tworavens_protocol                               = 'https'
-  $tworavens_domain                                 = $iqss::globals::dataverse_fqdn
   $tworavens_port                                   = '9999'
+  $tworavens_protocol                               = 'https'
+  $tworavens_rapache_version                        = '1.2.6'
 
 
 

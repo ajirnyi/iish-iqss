@@ -455,6 +455,10 @@ The domain name of the dataverse web application this TwoRavens web application 
 
 The port of the dataverse web application. Defaults to '9999'.
 
+#####`dataverse_site_url`
+
+The url to a dataverse web application. Defaults to 'https://`dataverse_fqdn`:9999'.
+
 Hieradata
 ---------
 
