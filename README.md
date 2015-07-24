@@ -1,5 +1,5 @@
-dataverse
-==========
+Dataverse puppet module
+=======================
 
 Table of Contents
 -----------------
