@@ -17,12 +17,14 @@ In Dataverse 4.0, Shibboleth support requires fronting Glassfish with Apache as 
       $shibboleth::params::shib_package_name: # Defined in the shibboleth module
         ensure  => installed,
         require => Exec['Add yum repository'],
+        notify => Apache::Mod['shib2'],
     }
   }
 
   if $::osfamily == 'Debian' {
     package { $shibboleth::params::mod_ssl_package_name: # Defined in the shibboleth module
       ensure => installed,
+      notify => Apache::Mod['shib2'],
     }
   }
 
