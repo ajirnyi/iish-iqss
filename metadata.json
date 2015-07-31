@@ -3,7 +3,7 @@
     "version": "0.1.0",
     "author": "Lucien van Wouw",
     "summary": "This module will install and configure the IQSS Dataverse application.",
-    "license": "GPLv3",
+    "license": "GPL-3.0",
     "source": "https://github.com/iish/iish-iqss/",
     "project_page": "https://github.com/iish/iish-iqss/",
     "issues_url": "https://github.com/iish/iish-iqss/issues",

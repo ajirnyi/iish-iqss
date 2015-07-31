@@ -1,6 +1,8 @@
 Dataverse puppet module
 =======================
 
+Copyright (C) 2015 International Institute of Social History.
+
 Table of Contents
 -----------------
 
@@ -12,6 +14,7 @@ Table of Contents
 6. [Hieradata - Using hieradata](#hieradata)
 7. [Known issues - Known issues](#known-issues)
 8. [To do - Or not to do] (#todo)
+9. [Contributors(#contributors)]
 
 Overview
 --------
@@ -63,7 +66,7 @@ Before you begin
 These are the dependencies the puppet module needs:
 * a first-time update of each of the host's package repository ( e.g. using 'apt-get update' or 'yum update' )
 * the unzip utility
-* This module depends on the altered fatmcgav-glassfish module which is not part of the puppet force repository.
+* This module depends on the altered fatmcgav-glassfish module which is not part of the puppet forge repository.
  There is a [PR:https://github.com/fatmcgav/fatmcgav-glassfish/pull/51] to incorporate them. Until that time use
    the fork and install it on your puppet master or puppetless client environment:
    
@@ -560,10 +563,12 @@ Known issues
 
 * The Rserve service does not automatically start when it is installed for the first time.
 * When installing TwoRavens for the first time, apache does not restart and read in the configuration.
+* The glassfish installation order is wrong: it sets up glassfish, starts it and then adds library and config dependencies. The service start should be the last step.
 
 To do
 -----
 
+* The Rserver config uses a static file in files/dataverse/conf/R/ but it should be a template.
 * Discuss how to move on from here: a dataverse installation module on https://forge.puppetlabs.com/ so developers and IT administrators can setup their DTAP environment ?
 * Test with Centos 7 ?
 * Shibboleth

@@ -35,6 +35,7 @@ class iqss::params inherits iqss::globals {
   $database_login                                   = true
   $database_manage_package_repo                     = true
   $database_superuser                               = false
+  $database_listen_addresses                        = 'localhost'
   $database_replication                             = false
   $database_createrole                              = false
   $database_version                                 = '9.3'
